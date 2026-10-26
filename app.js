@@ -1,16 +1,15 @@
-
-const taskInput = document.getElementById("new-task"); 
-const addButton = document.getElementsByTagName("button")[0]; 
-const incompleteTaskHolder = document.getElementById("incompleteTasks"); 
-const completedTasksHolder = document.getElementById("completed-tasks"); 
+const taskInput = document.getElementById("new-task");
+const addButton = document.getElementsByTagName("button")[0];
+const incompleteTaskHolder = document.getElementById("incompleteTasks");
+const completedTasksHolder = document.getElementById("completed-tasks");
 
 const createNewTaskElement = function (taskString) {
   const listItem = document.createElement("li");
 
   const checkBox = document.createElement("input");
-  const label = document.createElement("label"); 
-  const editInput = document.createElement("input"); 
-  const editButton = document.createElement("button"); 
+  const label = document.createElement("label");
+  const editInput = document.createElement("input");
+  const editButton = document.createElement("button");
   const deleteButton = document.createElement("button");
   const deleteButtonImg = document.createElement("img");
 
@@ -21,7 +20,7 @@ const createNewTaskElement = function (taskString) {
   editInput.type = "text";
   editInput.className = "task";
 
-  editButton.innerText = "Edit"; 
+  editButton.innerText = "Edit";
   editButton.className = "edit";
 
   deleteButton.className = "delete";
@@ -47,7 +46,6 @@ const addTask = function () {
 };
 
 const editTask = function () {
-
   const listItem = this.parentNode;
 
   const editInput = listItem.querySelector("input[type=text]");
@@ -66,14 +64,12 @@ const editTask = function () {
 };
 
 const deleteTask = function () {
-
   const listItem = this.parentNode;
   const ul = listItem.parentNode;
   ul.removeChild(listItem);
 };
 
 const taskCompleted = function () {
-
   const listItem = this.parentNode;
   completedTasksHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskIncomplete);
@@ -104,4 +100,3 @@ for (let i = 0; i < incompleteTaskHolder.children.length; i++) {
 for (let i = 0; i < completedTasksHolder.children.length; i++) {
   bindTaskEvents(completedTasksHolder.children[i], taskIncomplete);
 }
-
